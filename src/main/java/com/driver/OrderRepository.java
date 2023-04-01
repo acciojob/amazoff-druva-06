@@ -63,7 +63,7 @@ public class OrderRepository {
         return ordersLeftAfterGivenTime;
     }
     public int getLastDeliveryTimeByPartnerId(String partnerId){
-        int mx = 0;
+        int mx = Integer.MIN_VALUE;
         for(String orderId : orderPartnerPairDb.get(partnerId)){
             mx = Math.max(mx,orderDb.get(orderId).getDeliveryTime());
         }

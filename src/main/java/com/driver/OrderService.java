@@ -41,6 +41,7 @@ public class OrderService {
     }
     public String getLastDeliveryTimeByPartnerId(String partnerId){
         int time = orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
+        if(time == Integer.MAX_VALUE) return null;
         int hr = time/60, min = time%60;
         String maxTime;
         if(hr < 10) maxTime =  "0"+hr+":";
