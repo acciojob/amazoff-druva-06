@@ -58,7 +58,7 @@ public class OrderRepository {
         int givenTime = Integer.parseInt(time.split(":")[0])*60;
         givenTime += Integer.parseInt(time.split(":")[1]);
         for(String orderId: orderPartnerPairDb.get(partnerId)){
-            if(givenTime <= orderDb.get(orderId).getDeliveryTime()) ordersLeftAfterGivenTime++;
+            if(givenTime < orderDb.get(orderId).getDeliveryTime()) ordersLeftAfterGivenTime++;
         }
         return ordersLeftAfterGivenTime;
     }
